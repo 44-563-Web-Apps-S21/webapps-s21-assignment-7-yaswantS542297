@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Reaction</title>
+  <title>Reaction </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -9,42 +10,50 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
+
 <body>
-  <h1>Yaswant Lakkaraju reaction timer</h1>
-  <p id="target">Your time</p>
-  <p id="countdown">Count</p>
-  <button type="button" class="btn btn-primary" onclick="startTime()">Start Timer</button>
-  <button type="button" class="btn btn-primary" onclick="recordReact()">React Now</button> 
-  <script> 
-    myTime = undefined;
+
+  <h2>Yaswant Lakkaraju reaction timer</h2>
+
+  <button type="button" class="btn btn-primary" onclick="startTime()">
+    Start Timer</button>
+
+  <button type="button" class="btn btn-primary" onclick="recordReact()">
+    React Now</button>
+
+  <div id="target">Your time </div>
+  <div id="countdown">Count</div>
+
+  <script>
+    var Time = undefined;
     function recordReact() {
-        myTime = Date.now();
-        console.log("Time : " + myTime);
+      Time = Date.now();
+      console.log(Time);
+      
+    }
+    function startTime() {
+      for (let a = 0; a < 4; a++) {
+        let L = (3 - a) * 1000;
+
+        setTimeout(() => {
+
+          document.getElementById("countdown").innerHTML = a;
+        }, L)
       }
-      function startTime() {
-        var countdown = getRandomIntInclusive(2, 10);
-        console.log(countdown);   
-        for (var i = 0; i < 3; i++) {
-          setTimeout(function (i) {
-            document.getElementById("countdown").innerHTML = i
-          } (((countdown) - i) * 1000), i); 
+      setTimeout(() => {
+        if (Time == undefined)
+          document.getElementById("target").innerHTML = "Too Slow";
+        else {
+          var buttonTime = Date.now();
+          var D = buttonTime - Time;
+         
+          document.getElementById("target").innerHTML = "Time was " + "elapsed time";
+          Time = undefined
         }
-         setTimeout(function (i) {
-          console.log(i)
-          if (myTime == undefined) {
-            document.getElementById("target").innerHTML = "Too Slow"
-            document.getElementById("react").classList.add("btn-dark");
-            document.getElementById("react").classList.remove("btn-success");
-          }
-          else {
-            var buttonTime = Date.now();
-            var elapsedTime = buttonTime - myTime;
-            document.getElementById("target").innerHTML = "Time was " + elapsedTime;
-            document.getElementById("react").classList.add("btn-primary");
-            document.getElementById("react").classList.remove("btn-success");
-          }
-        } (countdown)*1000)
-      }
-    </script>
+      }, 3000)
+    }
+  </script>
+
 </body>
+
 </html>
