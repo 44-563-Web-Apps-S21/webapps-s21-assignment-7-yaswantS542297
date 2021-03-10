@@ -1,68 +1,69 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-    <title>Flex list</title>
+<html> <head>
+    <title>List</title>
     <style>
-        .flex-container {
-            display: flex;
-            flex-direction: row;
-            background-color: red;
-        }
-        
-        .flex-container>div {
-            background-color: #f1f1f1;
-            margin: 10px;
-            padding: 20px;
-            font-size: 30px;
-        }
-        
-        @media (max-width: 600px) {
-            .flex-container {
-                flex-direction: column;
-                background-color: green;
-            }
-        }
-    </style>
-</head>
+    .flex-container {
+      display: flex;  flex-direction:row;
+      background-color: red;
+  }
+
+.flex-container > div {  /*div children of the flex container*/
+  background-color: #f1f1f1; 
+  margin: 10px;  padding: 20px;  font-size: 30px;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) { 
+	 .flex-container{
+		 flex-direction:column;
+		 background-color: green;
+	  }
+	}
+</style></head>
+
+
 
 <body>
-    <h1>Yaswant lists</h1>
-    <input type="text" id="text" name="form1_text"> <br><br>
-
-    <div class="flex-container" id="target">
-        <div class="listy"> item 1</div>
-        <div class="listy"> item 2</div>
-        <div class="listy"> item 3</div>
-    </div>
-
-    <p> Press the button to create an new element of type div and then add it to the container.
-    </p>
-    <button onclick="makeNewDiv()">Add one</button>
-
+    <h1>Yaswant Lakkaraju builds a list</h1>
+    <label for="text">Item</label>
+    <input type="text" id="list" name="input"><br><br>
+		<div class="flex-container" id="target">
+		  <div class="listy">row item 1</div>   
+		  <div class="listy">row item 2</div>  
+		  <div class="listy">row item 3</div>  
+		</div>
+	
+	<p> Press the button to create an new element of type div and then add it to the container.
+		</p>
+		<button onclick="makeNewDiv()">Add one</button>
+	
+	
+</body>
 <script>
-    function makeNewDiv() {
-        const element = document.createElement("div");
-        element.innerHTML = document.getElementById("text").value;
-        element.setAttribute('class', 'listy');
-        
-        var i;
-        var listyItems = document.getElementsByClassName("listy");
-        len = listyItems.length;
-        var a = 0;
-        if (len > 8) {
-            for (var k = 0; k < 8; k++) {
-                if (listyItems[k].innerHTML == element.innerHTML) {
-                    listyItems[k].remove();
-                    console.log("We are removing duplicates");
-                    a = 1;
+	function makeNewDiv(){
+		/* make the div and its text */
+		let e = document.createElement("div")
+		e.innerHTML = document.getElementById("list").value;
+        e.setAttribute('class', 'listy');
+		var lI = document.getElementsByClassName("listy");
+        var L = lI.length;
+        var k = 0;
+        if (L > 9) {
+            for (var n = 0; n < 9; n++) {
+                if (lI[n].innerHTML == e.innerHTML) {
+                    lI[n].remove();
+                    console.log("We are getting rid of duplicates");
+                    j = 1;
                     break;
-                }
+                } }
+            if (g == 0) {
+                var s = Math.floor((Math.random() * 9) + 0);
+                lI[s].remove();
+                console.log("We get rid of the first item.")
             }
         }
-    }
-    </script>
-    
-
-</body>
-    </html>
+        /* add it to the container */
+        document.getElementById('target').appendChild(e)	
+	}
+</script>
+</html>	
