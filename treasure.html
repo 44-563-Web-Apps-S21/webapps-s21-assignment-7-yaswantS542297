@@ -90,7 +90,7 @@ function makeGuess(position){
             var id;
             for(var k = 0; k < v.length; k++){
                     if(position == k){
-                        id = v[i];
+                        id = v[k];
                     }
             }
 
@@ -120,20 +120,20 @@ function makeGuess(position){
     ]
     var a1 = 0, b1 = 0, a2 = 0, b2 = 0;
 
-    for (var i = 0; i < 5; i++) {
-    for (var j = 0; j < 5; j++)
-    if (grid[i][j] == p1) {
-        a1 = i;
-        b1 = j;
+    for (var k = 0; k < 5; k++) {
+    for (var n = 0; n < 5; n++)
+    if (grid[k][n] == p1) {
+        a1 = k;
+        b1 = n;
         break;
     }
 }
 
-    for (var i = 0; i < 5; i++) {
-    for (var j = 0; j < 5; j++)
-    if (grid[i][j] == p2) {
-        a2 = i;
-        b2 = j;
+    for (var k = 0; k < 5; k++) {
+    for (var n = 0; n < 5; n++)
+    if (grid[k][n] == p2) {
+        a2 = k;
+        b2 = n;
         break;
     }
 }
