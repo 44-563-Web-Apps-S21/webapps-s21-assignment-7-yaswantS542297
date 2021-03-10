@@ -95,10 +95,10 @@ function makeGuess(position){
             }
 
             if(id.localeCompare(treasureLocation)){
-                document.getElementById(id).src = "emptybox.jpg";
+                document.getElementById(id).src = "Images/emptybox.jpg";
             }
             else
-            document.getElementById(id).src = "coin.jpg";
+            document.getElementById(id).src = "Images/coin.jpg";
         
         clickCount = clickCount+1;
         document.getElementById("clicks").innerHTML = "Number of clicks is " +clickCount;
